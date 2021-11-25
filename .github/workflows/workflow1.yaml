@@ -13,6 +13,16 @@ on:
   
 jobs:
   example_job:
+    strategy:
+    fail-fast: false
+    max-parallel: 1
+    matrix:
+      os: [ubuntu-latest] #, macos-latest,windows-latest]
+      python-version: [3.8] #,3.9]       
+      python-venv: [""] #,"venv"]
+      byoc-cost-savings: ["--cost-savings"] #, ""]
+      byoc-region: ["us-east-1"]       
+      byoc-instance-types: ["--instance-types t2.medium,g4dn.xlarge"] 
     name: Generate output
     runs-on: ubuntu-latest   
     # Map the job outputs to step outputs
