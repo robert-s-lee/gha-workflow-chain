@@ -18,7 +18,7 @@ jobs:
       max-parallel: 1
       matrix:
         os: [ubuntu-latest] #, macos-latest,windows-latest]
-        python-version: [3.8] #,3.9]       
+        python-version: [3.8, 3.9]       
         python-venv: [""] #,"venv"]
         byoc-cost-savings: ["--cost-savings"] #, ""]
         byoc-region: ["us-east-1"]       
@@ -31,6 +31,6 @@ jobs:
       output2: ${{ steps.step2.outputs.secondword }}
     steps:
       - id: step1
-        run: echo "::set-output name=firstword::hello"
+        run: echo "::set-output name=firstword::${{matrix.python-version}}"
       - id: step2
-        run: echo "::set-output name=secondword::world"
+        run: echo "::set-output name=secondword::${{matrix.os}}"
