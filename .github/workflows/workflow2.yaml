@@ -4,10 +4,10 @@ on:
   workflow_call:
     # Map the workflow outputs to job outputs
     inputs:
-      firstword:
+      firstword1:
         required: true
         type: string
-      secondword:
+      secondword1:
         required: true
         type: string
     outputs:
@@ -28,6 +28,6 @@ jobs:
       output2: ${{ steps.step2.outputs.secondword }}
     steps:
       - id: step1
-        run: echo "::set-output name=firstword::${{ inputs.firstword }} hello2"
+        run: echo "::set-output name=firstword::${{ inputs.firstword1 }} hello2"
       - id: step2
-        run: echo "::set-output name=secondword::${{ inputs.secondword }} world2"
+        run: echo "::set-output name=secondword::${{ inputs.secondword1 }} world2"
