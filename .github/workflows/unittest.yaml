@@ -11,8 +11,8 @@ jobs:
     needs: job1
     uses: robert-s-lee/gha-workflow-chain/.github/workflows/workflow2.yaml@main
     with:
-      firstword1: {{ needs.job1.outputs.firstword }}
-      secondword1: ${{ needs.job1.outputs.secondword }}
+      firstword: ${{ needs.job1.outputs.firstword }}
+      secondword: $${{ needs.job1.outputs.secondword }}
 
   job3:
     runs-on: ubuntu-latest
