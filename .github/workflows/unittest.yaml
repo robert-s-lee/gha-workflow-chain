@@ -5,6 +5,7 @@ on:
 
 jobs:
   job1:
+    runs-on: ubuntu-latest
     uses: robert-s-lee/gha-workflow-chain/.github/workflows/workflow1.yaml@main
 
   job2:
@@ -12,7 +13,7 @@ jobs:
     uses: robert-s-lee/gha-workflow-chain/.github/workflows/workflow2.yaml@main
     with:
       firstword: ${{ needs.job1.outputs.firstword }}
-      secondword: $${{ needs.job1.outputs.secondword }}
+      secondword: ${{ needs.job1.outputs.secondword }}
 
   job3:
     runs-on: ubuntu-latest
